@@ -2,6 +2,7 @@
 _build/
 /addons/
 /odoo/
+/venv/
 
 # dotfiles
 .*
