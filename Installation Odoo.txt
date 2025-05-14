@@ -54,3 +54,6 @@ python odoo-bin scaffold real_estate ./custom_addons
 
 14 - Install the new Module into the database :
 python odoo-bin -u real_estate -d techlab -s --stop-after-init
+
+15 - to avoid relaunching the server everytime you modify a view, add this --dev xml add the and of the launching command:
+python odoo-bin -c odoo.conf --dev xml
