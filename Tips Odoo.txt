@@ -1,0 +1,35 @@
+1 - Basic operations like CRUD, KANBAN VIEW, CALENDAR VIEW, EVRY TYPE OF VIEW, ... you don't always need to explicitly define a Controller.
+You can directly link the Model to the View, and Odoo takes care of the routing and functionality for you.
+
+2 - Controllers are needed when you want to define custom routes, implement specific actions that are not part of basic CRUD operations,
+or handle custom responses (e.g., JSON, PDF).
+
+3 - @api.onchange is for real-time updates and triggers when a field value is changed by the user (no need to save).
+example :
+    quantity = fields.Integer(string="Quantity")
+    unit_price = fields.Float(string="Unit Price")
+    total_price = fields.Float(string="Total Price", compute="_compute_total_price", store=True)
+
+    @api.onchange('quantity', 'unit_price')  # Trigger method on change of quantity or unit_price
+    def _onchange_quantity_unit_price(self):
+        if self.quantity and self.unit_price:
+            self.total_price = self.quantity * self.unit_price
+
+  - @api.depends is used for computed fields, where you define how a field's value is calculated based on the values of other fields.
+example :
+    unit_price = fields.Float(related='sale_line_id.price_unit', string="Unit Price", store=True)
+    multiplied_price = fields.Float(string="Multiplied Price", compute="_compute_multiplied_price", store=True)
+
+    @api.depends('unit_price')
+    def _compute_multiplied_price(self):
+        for record in self:
+            record.multiplied_price = record.unit_price * 2
+
+4 - Odoo Worklfows :
+In Odoo, workflows (or more accurately, states and transitions) represent the stages or steps of validation that an object goes through
+during its lifecycle.
+
+5 - In Odoo, a record refers to a single instance of a model. It's essentially a row in a database table that contains data for each field 
+defined in the model.
+
+6 - An action typically defines what happens when a user interacts with a menu item

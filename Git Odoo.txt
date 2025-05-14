@@ -1,0 +1,13 @@
+1 - create repository odoo-techlab
+
+2 - git init
+
+3 - put /addons/ and /odoo/ inside .gitignore (they take a lot of place so it could lead to some error)
+
+4 - add all files except ignored ones : git add .
+
+5 - commit your clean project : git commit -m "Initial commit without odoo and addons folders"
+
+6 - push to master : git push -u origin master
+
+7 - if you encounter any error, delete .git and start again : rmdir /s /q .git

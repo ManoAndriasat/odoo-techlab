@@ -1,0 +1,56 @@
+1 - Install python
+
+2 - Install postgres
+
+3 - Upgrade pip
+python -m pip install --upgrade pip
+
+4 - Install Microsoft Visual C++ Build Tools
+-Go to: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+-Click "Download Build Tools".
+-Run the installer and select:
+	"Desktop development with C++" workload.
+	"MSVC v142 - VS 2019 C++ x64/x86 build tools" (or v143 for VS 2022).
+	Windows 10/11 SDK (whichever matches your OS).
+
+5 - Install Git
+
+6 - clone odoo from github 
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 17.0 odoo-dev
+
+7 - Create a virtual envrionment into the odoo code source
+python -m venv venv 
+venv\Scripts\activate
+
+8 - Install system dependencies :
+pip install psycopg2-binary
+pip install lxml
+pip install Pillow
+
+9 - Install all dependences
+pip install -r requirements.txt
+
+10 - (optional) Create a postgres odoo user
+CREATE USER odoo WITH PASSWORD 'odoo';
+ALTER USER odoo CREATEDB;
+
+11 - Create your odoo.conf :
+python odoo-bin -c odoo.conf -s --stop-after-init
+[options]
+	admin_passwd = ****
+	db_host = localhost
+	db_port = 5432
+	db_user = odoo
+	db_password = admin
+	addons_path = addons,custom_addons
+	http_port = 8069
+	logfile = odoo.log
+
+12 - run the app
+python odoo-bin -c odoo.conf
+
+13 - New Module creation :
+python odoo-bin scaffold real_estate ./custom_addons
+
+14 - Install the new Module into the database :
+python odoo-bin -u real_estate -d techlab -s --stop-after-init
