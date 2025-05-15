@@ -29,22 +29,22 @@
             <form string="property">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="postcode"/>
-                        </group>
-                        <group>
-                            <field name="date_availability"/>
-                        </group>
-                        <group>
-                            <field name="state"/>
-                        </group>
+                            <group><field name="name"/></group>
+                            <group><field name="description"/></group>
+                            <group><field name="postcode"/></group>
+                            <group><field name="date_availability"/></group>
+                            <group><field name="expected_price"/></group>
                     </group>
                     <notebook>
                         <page string="Description">
-                            <group><field name="description"/></group>
-                            <group><field name="facades"/></group>
-                            <group><field name="garden"/></group>
                             <group><field name="bedrooms"/></group>
+                            <group><field name="living_area"/></group>
+                            <group><field name="facades"/></group>
+                            <group><field name="garage"/></group>
+                            <group><field name="garden"/></group>
+                            <group><field name="garden_area"/></group>
+                            <group><field name="active"/></group>
+                            <group><field name="garden_orientation"/></group>
                         </page>
                         <page string="Read Only">
                             <group><field name="selling_price"/></group>
