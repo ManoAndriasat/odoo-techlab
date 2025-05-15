@@ -4,5 +4,9 @@
         <menuitem id="estate_properties_menu" name="Properties">
             <menuitem id="estate_property_action_menu" action="estate_property_action" name="Properties List" sequence="10"/>
         </menuitem>
+        <menuitem id="estate_property_type_menu" name="Settings">
+            <menuitem id="estate_property_type_action_menu" action="estate_property_type_action" name="Property Types"/>
+            <menuitem id="estate_property_tag_action_menu" action="estate_property_tag_action" name="Property Tags"/>
+        </menuitem>
     </menuitem>
 </odoo>
