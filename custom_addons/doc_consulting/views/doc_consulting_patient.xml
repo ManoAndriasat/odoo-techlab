@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="doc_consulting_patient_action" model="ir.actions.act_window">
+        <field name="name">Doc Consulting Patient</field>
+        <field name="res_model">doc.consulting.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+    
