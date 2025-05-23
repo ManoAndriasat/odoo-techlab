@@ -5,5 +5,33 @@
         <field name="res_model">doc.consulting.drug</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="doc_consulting_drug_form" model="ir.ui.view">
+        <field name="name">doc.consulting.drug.form</field>
+        <field name="model">doc.consulting.drug</field>
+        <field name="arch" type="xml">
+            <form string="Drug">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="doc_consulting_drug_tree" model="ir.ui.view">
+        <field name="name">doc.consulting.drug.tree</field>
+        <field name="model">doc.consulting.drug</field>
+        <field name="arch" type="xml">
+            <tree string="Drug">
+                <field name="name"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
 </odoo>
+
+
     

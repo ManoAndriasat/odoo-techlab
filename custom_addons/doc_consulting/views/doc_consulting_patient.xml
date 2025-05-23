@@ -5,5 +5,33 @@
         <field name="res_model">doc.consulting.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="doc_consulting_patient_form" model="ir.ui.view">
+        <field name="name">doc.consulting.patient.form</field>
+        <field name="model">doc.consulting.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="consultation_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="doc_consulting_patient_tree" model="ir.ui.view">
+        <field name="name">doc.consulting.patient.tree</field>
+        <field name="model">doc.consulting.patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patient">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="consultation_ids"/>
+            </tree>
+        </field>
+    </record>
 </odoo>
     

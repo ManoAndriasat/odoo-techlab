@@ -5,7 +5,6 @@ class estate_property_offer(models.Model):
     _name = 'estate.property.offer'
     _description = 'Estate Property Offer'
 
-
     @api.depends('validity')
     def _compute_date_deadline(self):
         for record in self:
@@ -13,6 +12,7 @@ class estate_property_offer(models.Model):
 
     def _inverse_date_deadline(self):
         for record in self:
+            print(record.date_deadline)
             record.validity = (record.date_deadline - date.today()).days
 
     price = fields.Float(required=True)

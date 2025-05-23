@@ -38,31 +38,25 @@
             </tree>
         </field>
     </record>
-
-    <record id="doc_consulting_doctor_search" model="ir.ui.view">
-        <field name="name">doc.consulting.doctor.search</field>
-        <field name="model">doc.consulting.doctor</field>
-        <field name="arch" type="xml">
-            <search string="property">
-                <filter name="Completed consultations" domain="[('consultation_ids.state', '=', 'completed')]"/>
-                <filter name="Not started consultations" domain="[('consultation_ids.state', '=', 'not_started')]"/>
-            </search>
-        </field>
-    </record>
     
     <!-- CONSULTATION -->
-        <record id="doc_consulting_consultation_form" model="ir.ui.view">
+
+    <record id="doc_consulting_consultation_form" model="ir.ui.view">
         <field name="name">doc.consulting.consultation.form</field>
         <field name="model">doc.consulting.consultation</field>
         <field name="arch" type="xml">
             <form string="Consultation">
+                <header>
+                    <button name="complete_consultation" type="object" string="complete consultation"/>
+                    <button name="complete_consultation" type="object" string="start consultation"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="doctor_id"/>
                         <field name="purpose"/>
                         <field name="consultation_date"/>
                         <field name="patient_id"/>
-                        <field name="state"/>
+                        <field name="state" widget="statusbar"/>
                         <field name="total_price"/>
                     </group>
                     <notebook>
@@ -88,10 +82,9 @@
             <tree string="property">
                 <field name="patient_id"/>
                 <field name="consultation_date"/>
-                <field name="state" widget="statusbar"/>
+                <field name="state" widget="badge" decoration-bf="state == 'completed'" decoration-success="state == 'completed'" decoration-danger="state == 'not_started'" decoration-info="state == 'in_progress'"/>
                 <field name="total_price"/>
                 <field name="consultation_line_ids"/>
-                <field name="Completed consultations" domain="[('state', '=', 'completed')]"/>
             </tree>
         </field>
     </record>

@@ -29,8 +29,13 @@
             <form string="property">
                 <sheet>
                     <group>
+                        <button name="cancel_property" type="object" string="Cancel"/>
+                        <button name="sold_property" type="object" string="Sold"/>
+                    </group>
+                    <group>
                             <group><field name="tag_ids" widget="many2many_tags"/></group>
                             <group><field name="name"/></group>
+                            <group><field name="state"/></group>
                             <group><field name="postcode"/></group>
                             <group><field name="date_availability"/></group>
                             <group><field name="expected_price"/></group>
@@ -62,6 +67,7 @@
                                     <field name="status"/>
                                     <field name="partner_id"/>
                                     <field name="property_id"/>
+                                    <field name="validity"/>
                                 </tree>
                             </field>
                         </page>

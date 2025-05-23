@@ -6,4 +6,4 @@ class DocConsultingPatient(models.Model):
 
     name = fields.Char(string='Name')
     phone = fields.Char(string='Phone')
-    consultation_ids = fields.One2many('doc.consulting.consultation', 'patient_id', string='Consultations')
+    consultation_ids = fields.One2many('doc.consulting.consultation', 'patient_id', string='Consultations', readonly=True)

@@ -29,6 +29,7 @@ class EstateProperty(models.Model):
         for record in self:
             record.best_price = max(record.offer_ids.mapped('price') ,default=0)
 
+
     name = fields.Char(required=True)
     description = fields.Text()
     postcode = fields.Char()
@@ -62,3 +63,16 @@ class EstateProperty(models.Model):
         ('sold', 'Sold'),
         ('cancelled', 'Cancelled')
     ], required=True, copy=False, default='new')
+
+
+    def cancel_property(self):
+        for record in self:
+            if record.state != 'sold':
+                record.state = 'cancelled'
+        return True
+
+    def sold_property(self):
+        for record in self:
+            if record.state != 'cancelled':
+                record.state = 'sold'
+        return True

@@ -34,4 +34,21 @@ class DocConsultingConsultation(models.Model):
                 ('id', '!=', record.id)
             ])
             if len(on_progress_consultation) >= 3:
-                raise ValidationError("HI %s ,The doctor already has 3 consultations in progress for the day: %s"  % (record.doctor_id.name, record.consultation_date))
+                raise ValidationError("The doctor already has 3 consultations in progress for the day: %s"  % record.consultation_date)
+
+    def complete_consultation(self):
+        for record in self:
+            if record.state == 'in_progress': 
+
+                record.state = 'completed'
+            else:
+                raise ValidationError(_("The consultation is already completed or not started."))
+        return True
+    
+    def start_consultation(self):
+        for record in self:
+            if record.state == 'not_started':
+                record.state = 'in_progress'
+            else:
+                raise ValidationError(_("The consultation is already in progress or completed."))
+        return True
