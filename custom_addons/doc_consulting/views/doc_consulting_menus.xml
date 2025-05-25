@@ -4,5 +4,6 @@
         <menuitem id="doc_consulting_doctor_menu" name="Doctors" sequence="2" action="doc_consulting_doctor_action"/>
         <menuitem id="doc_consulting_patient_menu" name="Patients" sequence="1" action="doc_consulting_patient_action"/>
         <menuitem id="doc_consulting_drug_menu" name="Drugs" sequence="3" action="doc_consulting_drug_action"/>
+        <menuitem id="doc_consulting_consultation_menu" name="Consultations" sequence="4" action="doc_consulting_consultation_action"/>
     </menuitem> 
 </odoo>

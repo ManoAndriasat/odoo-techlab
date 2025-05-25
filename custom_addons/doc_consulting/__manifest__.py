@@ -7,7 +7,6 @@
     'installable': True,
     'license': 'AGPL-3',
 
-
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
     'description': """
@@ -32,7 +31,10 @@ Long description of module's purpose
         'views/doc_consulting_patient.xml',
         'views/doc_consulting_drug.xml',
         'views/doc_consulting_doctor.xml',
+        'views/doc_consulting_consultation.xml',
         'views/doc_consulting_menus.xml',
+        'report/doc_consulting_reports.xml',
+        'report/doc_consulting_templates.xml',              
     ],
 }
 

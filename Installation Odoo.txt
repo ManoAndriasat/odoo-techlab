@@ -57,3 +57,7 @@ python odoo-bin -u real_estate -d techlab -s --stop-after-init
 
 15 - to avoid relaunching the server everytime you modify a view, add this --dev xml add the and of the launching command:
 python odoo-bin -c odoo.conf --dev xml
+
+
+16 - install wkhtmltopdf to print pdf
+https://github.com/wkhtmltopdf/packaging/releases/tag/0.12.6-1

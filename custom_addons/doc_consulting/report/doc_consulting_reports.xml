@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="doc_consulting_consultation_report" model="ir.actions.report">
+        <field name="name">Print consultation</field>
+        <field name="model">doc.consulting.consultation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">doc_consulting.report_doc_consulting_consultation_template</field>
+        <field name="report_file">doc_consulting.report_doc_consulting_consultation_template</field>
+        <field name="binding_model_id" ref="model_doc_consulting_consultation"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_doc_consulting_consultation_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <style>
+                    .page {
+                        padding: 20px;
+                        font-family: Arial, sans-serif;
+                    }
+                    .row {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .col-6 {
+                        width: 48%;
+                    }
+                    .line-item {
+                        border: 1px solid #000;
+                        margin-top: 20px;
+                    }
+                    .line-item th, .line-item td {
+                        border: 1px solid #000;
+                        padding: 8px;
+                        text-align: left;
+                    }
+                </style>
+                <div class="page">
+                    <h1>Consultation Report</h1>
+                    <br/>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Client Information</h3>
+                            <p><strong>Name:</strong> <span t-field="doc.patient_id.name"/></p>
+                            <p><strong>Contact:</strong> <span t-field="doc.patient_id.phone"/></p>
+                            <p><strong>Date:</strong> <span t-field="doc.consultation_date"/></p>
+                            <p><strong>Purpose:</strong> <span t-field="doc.purpose"/></p>
+                        </div>
+                        <div class="col-6">
+                            <h3>Doctor Information</h3>
+                            <p><strong>Doctor:</strong> <span t-field="doc.doctor_id.name"/></p>
+                            <p><strong>Contact:</strong> <span t-field="doc.doctor_id.phone"/></p>
+                        </div>
+                    </div>
+                    <br/>
+                    <table class="line-item" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <thead>
+                            <tr style="background-color: #f2f2f2;">
+                                <th>Drug</th>
+                                <th>Dosage</th>
+                                <th>Unit price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.consultation_line_ids" t-as="line">
+                                <tr>
+                                    <td><span t-field="line.drug_id.name"/></td>
+                                    <td><span t-field="line.quantity"/></td>
+                                    <td><span t-field="line.unit_price"/></td>
+                                    <td><span t-field="line.price"/></td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td><strong>Total:</strong></td>
+                                <td><t t-if="doc.state == 'completed'"><span t-field="doc.total_price"/></t></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

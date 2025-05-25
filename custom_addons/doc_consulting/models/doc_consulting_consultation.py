@@ -39,7 +39,6 @@ class DocConsultingConsultation(models.Model):
     def complete_consultation(self):
         for record in self:
             if record.state == 'in_progress': 
-
                 record.state = 'completed'
             else:
                 raise ValidationError(_("The consultation is already completed or not started."))

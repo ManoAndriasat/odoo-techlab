@@ -3,22 +3,38 @@
     <record id="estate_property_action" model="ir.actions.act_window">
         <field name="name">Estate Properties</field>
         <field name="res_model">estate.property</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,form</field>
     </record>
 
-    <record id="estate_property_tree_view" model="ir.ui.view">
-        <field name="name">estate.property.tree</field>
+    <record id="estate_property_kanban_view" model="ir.ui.view">
+        <field name="name">estate.property.kanban</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="postcode"/>
-                <field name="bedrooms"/>
-                <field name="living_area"/>
-                <field name="expected_price"/>
-                <field name="selling_price"/>
-                <field name="date_availability"/>
-            </tree>
+            <kanban>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div class="o_kanban_description">
+                                    <ul class="list-unstyled">
+                                        <li><field name="postcode"/></li>
+                                        <li><field name="expected_price"/></li>
+                                        <li><field name="property_type_id"/></li>
+                                        <li t-if="record.best_price">best : price<field name="best_price"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="o_kanban_footer">
+                                <span class="badge badge-secondary">
+                                    <field name="state" widget='badge' decoration-success="state == 'sold'" decoration-danger="state == 'cancelled'" decoration-info="state == 'new'"/>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 

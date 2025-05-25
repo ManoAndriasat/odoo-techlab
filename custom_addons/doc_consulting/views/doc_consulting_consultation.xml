@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="doc_consulting_consultation_action" model="ir.actions.act_window">
+        <field name="name">Doc Consulting consultation</field>
+        <field name="res_model">doc.consulting.consultation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="doc_consulting_consultation_form" model="ir.ui.view">
+        <field name="name">doc.consulting.consultation.form</field>
+        <field name="model">doc.consulting.consultation</field>
+        <field name="arch" type="xml">
+            <form string="Consultation">
+                <header>
+                    <button name="complete_consultation" type="object" string="complete consultation"/>
+                    <button name="start_consultation" type="object" string="start consultation"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="doctor_id"/>
+                        <field name="purpose"/>
+                        <field name="consultation_date"/>
+                        <field name="patient_id"/>
+                        <field name="total_price"/>
+                    </group>
+                    <notebook>
+                        <page string="Consultation Lines">
+                            <field name="consultation_line_ids">
+                                <tree>
+                                    <field name="drug_id"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="doc_consulting_consultation_tree" model="ir.ui.view">
+        <field name="name">doc.consulting.consultation.tree</field>
+        <field name="model">doc.consulting.consultation</field>
+        <field name="arch" type="xml">
+            <tree string="property">
+                <field name="patient_id"/>
+                <field name="consultation_date"/>
+                <field name="state" widget="badge" decoration-success="state == 'completed'" decoration-danger="state == 'not_started'" decoration-info="state == 'in_progress'"/>
+                <field name="total_price"/>
+                <field name="consultation_line_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="doc_consulting_consultation_search" model="ir.ui.view">
+        <field name="name">doc.consulting.consultation.search</field>
+        <field name="model">doc.consulting.consultation</field>
+        <field name="arch" type="xml">
+            <search string="property">
+                <filter name="Completed consultations" domain="[('state', '=', 'completed')]"/>
+                <filter name="Not started consultations" domain="[('state', '=', 'not_started')]"/>
+            </search>
+        </field>
+    </record>
+</odoo>
