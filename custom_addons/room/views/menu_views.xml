@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_room_views" name="Room" sequence="1">
+        <menuitem id="room_round_menu" name="rounds" sequence="1" action="room_round_views_action"/>
+        <menuitem id="room_patient_menu" name="Patients" sequence="2" action="room_patient_views_action"/>
+    </menuitem> 
+</odoo>

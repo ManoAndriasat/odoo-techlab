@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="room_round_views_action" model="ir.actions.act_window">
+        <field name="name">Room Rounds</field>
+        <field name="res_model">room.round</field>
+        <field name="view_mode">calendar,form</field>
+    </record>
+
+    <record id="view_room_round_calendar" model="ir.ui.view">
+        <field name="name">room.round.calendar</field>
+        <field name="model">room.round</field>
+        <field name="arch" type="xml">
+            <calendar string="Room Rounds" date_start="datetime" color="nurse_id">
+                <field name="note"/>
+            </calendar>
+        </field>
+    </record>
+</odoo>

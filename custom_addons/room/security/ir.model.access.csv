@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_room_patient,room.patient.user,model_room_patient,base.group_system,1,1,1,1
+access_room_round,room.round.nurse,model_room_round,base.group_system,1,1,1,1
+
+access_room_patient_user,room.patient.user,model_room_patient,hospital.group_hospital_nurse,1,0,0,0
+access_room_patient_nurse,room.patient.nurse,model_room_patient,hospital.group_hospital_nurse,1,1,1,1
+access_room_patient_doctor,room.patient.doctor,model_room_patient,hospital.group_hospital_doctor,1,1,1,1
+
+access_room_round_nurse,room.round.nurse,model_room_round,hospital.group_hospital_nurse,1,1,1,1
+access_room_round_patient,room.round.patient,model_room_round,hospital.group_hospital_patient,1,0,0,0
+access_room_round_doctor,room.round.doctor,model_room_round,hospital.group_hospital_doctor,1,0,0,0

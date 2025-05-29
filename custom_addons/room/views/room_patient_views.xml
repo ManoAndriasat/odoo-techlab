@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="room_patient_views_action" model="ir.actions.act_window">
+        <field name="name">patient</field>
+        <field name="res_model">room.patient</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

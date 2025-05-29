@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="ir.module.category" id="module_hospital_category">
+        <field name="name">hospital</field>
+        <field name="description">Hospital management</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="group_hospital_patient" model="res.groups">
+        <field name="name">Patient</field>
+        <field name="category_id" ref="module_hospital_category"/>
+    </record>
+    
+    <record id="group_hospital_nurse" model="res.groups">
+        <field name="name">Nurse</field>
+        <field name="category_id" ref="module_hospital_category"/>
+    </record>
+
+    <record id="group_hospital_doctor" model="res.groups">
+        <field name="name">Doctor</field>
+        <field name="category_id" ref="module_hospital_category"/>
+    </record>
+</odoo>
